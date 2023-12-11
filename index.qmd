@@ -1,0 +1,34 @@
+---
+title: "Saran Kumar Vajja"
+image: saran.jpg
+resources: Resume Saran.pdf
+about: 
+  template: marquee
+  image-shape: round
+  image-width: 15em
+  links:
+  - text: Email
+    icon: envelope
+    href: mailto:sarankumarvajja@my.unt.edu
+  - text: GitHub
+    icon: github
+    href: https://github.com/Sarankumarshiva
+  - text: Resume
+    icon: file-text
+    href: RESUME SARAN.pdf
+  - text: Linkedin
+    icon: linkedin
+    href: https://www.linkedin.com/in/saran-kumar-vajja-2825b7294
+  id: ppc
+---
+
+::: {#ppc}
+Saran Kumar is currently pursuing his Masters of Science in Advanced Data Analytics at the University of North Texas.He completed his Bachelors of Commerce in Computer Applications from Sri Venkateswara University.
+
+Worked on Prediction of House sales price and Electric vehicle analysis projects.
+
+Proficient in Python, C, C++, RStudio,Tableau, Power BI, Google Cloud Platform.
+:::
+
+
+

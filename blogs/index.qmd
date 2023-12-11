@@ -1,0 +1,108 @@
+
+---
+title: "Intro to Random Forest in RStudio"
+author: "Saran Kumar"
+date: "2023-12-11"
+image: "Randomforest.jpg"
+theme: litera
+
+---
+
+## Mastering Random Forest in RStudio
+
+I've always found Random Forest to be a fascinating and robust machine learning technique, ideal for both classification and regression tasks. It's like crafting a forest of decision trees where each tree contributes to a more accurate and generalized prediction. Recently, I delved into implementing a Random Forest model in RStudio, and here, I'll share my experience using the well-known `iris` dataset.
+
+
+
+RStudio has been my go-to for exploring machine learning models, and Random Forest was no exception. The `iris` dataset, a staple in R's dataset collection, was my dataset of choice for this exploration.
+
+
+Step 1: Installing and Loading Packages
+
+```{r}
+
+library(randomForest)
+library(ggplot2)
+library(dplyr)
+
+```
+
+Step 2: Loading the Dataset
+
+```{r}
+
+data("iris")
+
+```
+
+Step 3: Exploring the Dataset
+
+```{r}
+
+colnames(iris)
+str(iris)
+summary(iris)
+
+```
+
+Step 4: Visualizing the Data
+
+To get a better grasp of the data distribution, I created some visualizations.
+
+```{r}
+
+par(mfrow = c(2, 2), mar = c(4, 4, 2, 1))
+boxplot(iris$Sepal.Length, main = "Sepal Length",col = "green", border = "black")
+boxplot(iris$Sepal.Width, main = "Sepal Width",col = "green", border = "black")
+boxplot(iris$Petal.Length, main = "Petal Length",col = "green", border = "black")
+boxplot(iris$Petal.Width, main = "Petal Width",col = "green", border = "black")
+
+```
+
+Step 5: Examining Relationships
+
+I wanted to explore relationships between variables, particularly focusing on how different features correlate with iris species. For this, scatterplots are excellent.
+
+```{r}
+
+pairs(iris[1:4], main = "Iris Data - Pairwise Scatterplot", 
+      pch = 21, bg = c("red", "green3", "blue")[unclass(iris$Species)])
+
+
+```
+
+Step 6: Building the Random Forest Model
+
+```{r}
+
+set.seed(123)  # For reproducibility
+iris_rf <- randomForest(Species ~ ., data=iris, ntree=100)
+
+```
+
+Step 7: Evaluating the Model
+
+```{r}
+
+print(iris_rf)
+importance(iris_rf)
+
+```
+
+Step 8: Visualizing Model Performance
+
+```{r}
+
+plot(iris_rf)
+
+```
+
+Step 9: Making Predictions
+
+```{r}
+
+new_data <- data.frame(Sepal.Length=5.1, Sepal.Width=3.5, Petal.Length=1.4, Petal.Width=0.2)
+prediction <- predict(iris_rf, new_data)
+print(prediction)
+
+```
